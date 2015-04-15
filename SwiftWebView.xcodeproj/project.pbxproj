@@ -7,12 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38E18AE51ADE4AA400DB2220 /* backward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E18ADB1ADE4AA400DB2220 /* backward@2x.png */; };
+		38E18AE61ADE4AA400DB2220 /* backward@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E18ADC1ADE4AA400DB2220 /* backward@3x.png */; };
+		38E18AE71ADE4AA400DB2220 /* forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E18ADD1ADE4AA400DB2220 /* forward@2x.png */; };
+		38E18AE81ADE4AA400DB2220 /* forward@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E18ADE1ADE4AA400DB2220 /* forward@3x.png */; };
+		38E18AE91ADE4AA400DB2220 /* nav_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E18ADF1ADE4AA400DB2220 /* nav_back@2x.png */; };
+		38E18AEA1ADE4AA400DB2220 /* nav_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E18AE01ADE4AA400DB2220 /* nav_back@3x.png */; };
+		38E18AEB1ADE4AA400DB2220 /* refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E18AE11ADE4AA400DB2220 /* refresh@2x.png */; };
+		38E18AEC1ADE4AA400DB2220 /* refresh@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E18AE21ADE4AA400DB2220 /* refresh@3x.png */; };
+		38E18AED1ADE4AA400DB2220 /* toggle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E18AE31ADE4AA400DB2220 /* toggle@2x.png */; };
+		38E18AEE1ADE4AA400DB2220 /* toggle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38E18AE41ADE4AA400DB2220 /* toggle@3x.png */; };
 		38E6B44B1ADD43F500D2A371 /* SwiftWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 38E6B44A1ADD43F500D2A371 /* SwiftWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		38E6B4631ADD440800D2A371 /* SwiftWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E6B4611ADD440800D2A371 /* SwiftWebViewController.swift */; };
 		38E6B4641ADD440800D2A371 /* SwiftWebViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E6B4621ADD440800D2A371 /* SwiftWebViewToolbar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38E18ADB1ADE4AA400DB2220 /* backward@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "backward@2x.png"; path = "Assets/backward@2x.png"; sourceTree = "<group>"; };
+		38E18ADC1ADE4AA400DB2220 /* backward@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "backward@3x.png"; path = "Assets/backward@3x.png"; sourceTree = "<group>"; };
+		38E18ADD1ADE4AA400DB2220 /* forward@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "forward@2x.png"; path = "Assets/forward@2x.png"; sourceTree = "<group>"; };
+		38E18ADE1ADE4AA400DB2220 /* forward@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "forward@3x.png"; path = "Assets/forward@3x.png"; sourceTree = "<group>"; };
+		38E18ADF1ADE4AA400DB2220 /* nav_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_back@2x.png"; path = "Assets/nav_back@2x.png"; sourceTree = "<group>"; };
+		38E18AE01ADE4AA400DB2220 /* nav_back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_back@3x.png"; path = "Assets/nav_back@3x.png"; sourceTree = "<group>"; };
+		38E18AE11ADE4AA400DB2220 /* refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "refresh@2x.png"; path = "Assets/refresh@2x.png"; sourceTree = "<group>"; };
+		38E18AE21ADE4AA400DB2220 /* refresh@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "refresh@3x.png"; path = "Assets/refresh@3x.png"; sourceTree = "<group>"; };
+		38E18AE31ADE4AA400DB2220 /* toggle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toggle@2x.png"; path = "Assets/toggle@2x.png"; sourceTree = "<group>"; };
+		38E18AE41ADE4AA400DB2220 /* toggle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toggle@3x.png"; path = "Assets/toggle@3x.png"; sourceTree = "<group>"; };
 		38E6B4451ADD43F500D2A371 /* SwiftWebView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftWebView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38E6B4491ADD43F500D2A371 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38E6B44A1ADD43F500D2A371 /* SwiftWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftWebView.h; sourceTree = "<group>"; };
@@ -31,6 +51,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38E18AD01ADE40A000DB2220 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				38E18ADB1ADE4AA400DB2220 /* backward@2x.png */,
+				38E18ADC1ADE4AA400DB2220 /* backward@3x.png */,
+				38E18ADD1ADE4AA400DB2220 /* forward@2x.png */,
+				38E18ADE1ADE4AA400DB2220 /* forward@3x.png */,
+				38E18ADF1ADE4AA400DB2220 /* nav_back@2x.png */,
+				38E18AE01ADE4AA400DB2220 /* nav_back@3x.png */,
+				38E18AE11ADE4AA400DB2220 /* refresh@2x.png */,
+				38E18AE21ADE4AA400DB2220 /* refresh@3x.png */,
+				38E18AE31ADE4AA400DB2220 /* toggle@2x.png */,
+				38E18AE41ADE4AA400DB2220 /* toggle@3x.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		38E6B43B1ADD43F500D2A371 = {
 			isa = PBXGroup;
 			children = (
@@ -50,6 +87,7 @@
 		38E6B4471ADD43F500D2A371 /* SwiftWebView */ = {
 			isa = PBXGroup;
 			children = (
+				38E18AD01ADE40A000DB2220 /* Assets */,
 				38E6B4611ADD440800D2A371 /* SwiftWebViewController.swift */,
 				38E6B4621ADD440800D2A371 /* SwiftWebViewToolbar.swift */,
 				38E6B44A1ADD43F500D2A371 /* SwiftWebView.h */,
@@ -134,6 +172,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38E18AE61ADE4AA400DB2220 /* backward@3x.png in Resources */,
+				38E18AEB1ADE4AA400DB2220 /* refresh@2x.png in Resources */,
+				38E18AE81ADE4AA400DB2220 /* forward@3x.png in Resources */,
+				38E18AEC1ADE4AA400DB2220 /* refresh@3x.png in Resources */,
+				38E18AE91ADE4AA400DB2220 /* nav_back@2x.png in Resources */,
+				38E18AE51ADE4AA400DB2220 /* backward@2x.png in Resources */,
+				38E18AEA1ADE4AA400DB2220 /* nav_back@3x.png in Resources */,
+				38E18AEE1ADE4AA400DB2220 /* toggle@3x.png in Resources */,
+				38E18AED1ADE4AA400DB2220 /* toggle@2x.png in Resources */,
+				38E18AE71ADE4AA400DB2220 /* forward@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

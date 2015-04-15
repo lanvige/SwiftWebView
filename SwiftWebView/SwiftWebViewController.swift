@@ -19,12 +19,11 @@ public protocol SwiftWebViewControllerDelegate {
 
 public class SwiftWebViewController: UIViewController {
     // MARK: - Perproty
-    // Observing Content
-    private var myContext = 0
+    
     // Delegate
     public var delegate: SwiftWebViewControllerDelegate?
     // Configurations
-    var showsPageTitleInNavigationBar: Bool = true
+    public var showsPageTitleInNavigationBar: Bool = true
     // Theme
     var tintColor: UIColor?
     var barTintColor: UIColor?
@@ -42,7 +41,7 @@ public class SwiftWebViewController: UIViewController {
     }
     
     /** A boolean value if set to true shows the toolbar; otherwise, hides it. */
-    var showToolbar: Bool {
+    public var showToolbar: Bool {
         set(value) {
             self.toolbarHeight = value ? 44 : 0
         }
@@ -54,22 +53,17 @@ public class SwiftWebViewController: UIViewController {
     
     
     // private
-    
+    // Observing Content
+    private var myContext = 0
     private var toolbarHeight: Float = 0
     private var webView: WKWebView
+    
     // MARK: - NSObject
 
     public init(config: WKWebViewConfiguration?) {
         self.webView = WKWebView()
         
         super.init(nibName: nil, bundle: nil)
-    }
-    
-    deinit {
-        self.webView.navigationDelegate = nil
-        self.webView.UIDelegate = nil
-
-        self.stopObservingWebView()
     }
     
     public convenience init() {
@@ -81,10 +75,16 @@ public class SwiftWebViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    deinit {
+        self.webView.navigationDelegate = nil
+        self.webView.UIDelegate = nil
+        
+        self.stopObservingWebView()
+    }
     
     // MARK: - UIViewController Lifecycle
     
-    override public func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.darkGrayColor()
@@ -95,17 +95,17 @@ public class SwiftWebViewController: UIViewController {
         self.setupProgressView()
     }
     
-    override public func viewWillAppear(animated: Bool) {
+    public override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBarHidden = false
     }
     
-    override public func viewWillDisappear(animated: Bool) {
+    public override func viewWillDisappear(animated: Bool) {
         //
     }
     
-    override public func didReceiveMemoryWarning() {
+    public override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -158,7 +158,7 @@ public class SwiftWebViewController: UIViewController {
         return progressView
     }()
     
-    lazy var operationToolbar: SwiftWebViewToolbar = {
+    private lazy var operationToolbar: SwiftWebViewToolbar = {
         let toolbar = SwiftWebViewToolbar()
         return toolbar
     }()
@@ -174,7 +174,7 @@ public class SwiftWebViewController: UIViewController {
 
 // WKNavigationDelegate
 extension SwiftWebViewController: WKNavigationDelegate {
-    public func webView(webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+    private func webView(webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         //
         self.updateUIState()
         
@@ -183,7 +183,7 @@ extension SwiftWebViewController: WKNavigationDelegate {
         }
     }
     
-    public func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+    private func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
         
         self.updateUIState()
         
@@ -192,7 +192,7 @@ extension SwiftWebViewController: WKNavigationDelegate {
         }
     }
     
-    public func webView(webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: NSError) {
+    private func webView(webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: NSError) {
         self.updateUIState()
 
         if let delegate = self.delegate {
@@ -200,7 +200,7 @@ extension SwiftWebViewController: WKNavigationDelegate {
         }
     }
     
-    public func webView(webView: WKWebView, didFailNavigation navigation: WKNavigation!, withError error: NSError) {
+    private func webView(webView: WKWebView, didFailNavigation navigation: WKNavigation!, withError error: NSError) {
         self.updateUIState()
         
         if let delegate = self.delegate {
@@ -233,7 +233,7 @@ extension SwiftWebViewController {
 
 // Update Navigation Event
 extension SwiftWebViewController {
-    func updateUIState() {
+    private func updateUIState() {
         
         if (self.showsPageTitleInNavigationBar) {
                 self.title = webView.title
@@ -252,17 +252,17 @@ extension SwiftWebViewController {
         }
     }
     
-    func canWebViewGoBack() -> Bool {
+    private func canWebViewGoBack() -> Bool {
         return self.webView.canGoBack
     }
     
-    func webViewGoBack() {
+    private func webViewGoBack() {
         if (self.webView.canGoBack) {
             self.webView.goBack()
         }
     }
     
-    func performBackNavigation() {
+    private func performBackNavigation() {
         self.navigationController?.popViewControllerAnimated(true)
     }
 }
@@ -270,41 +270,41 @@ extension SwiftWebViewController {
 
 // iOS 8 WKWebView Progress
 extension SwiftWebViewController {
-    func startObservingWebView(webView: WKWebView) {
-//        let options = NSKeyValueObservingOptions.New | NSKeyValueObservingOptions.Old
-//        webView.addObserver(self, forKeyPath: "estimatedProgress", options: options, context: &myContext)
+    private func startObservingWebView(webView: WKWebView) {
+        let options = NSKeyValueObservingOptions.New | NSKeyValueObservingOptions.Old
+        webView.addObserver(self, forKeyPath: "estimatedProgress", options: options, context: &myContext)
     }
     
-    func stopObservingWebView() {
-//        webView.removeObserver(self, forKeyPath: "estimatedProgress")
+    private func stopObservingWebView() {
+        webView.removeObserver(self, forKeyPath: "estimatedProgress")
     }
     
-//    override public func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject: AnyObject], context: UnsafeMutablePointer<Void>) {
-//        if (context == &myContext) {
-//            self.progressView.alpha = 1
-//            
-//            if let progress: Float = change[NSKeyValueChangeNewKey]?.floatValue {
-//                var animated = progress > self.progressView.progress
-//                
-//                self.progressView.setProgress(progress, animated: animated)
-//                
-//                if (progress >= 1) {
-//                    UIView.animateKeyframesWithDuration(0.3, delay: 0.3, options: UIViewKeyframeAnimationOptions.allZeros, animations: { () -> Void in
-//                        self.progressView.alpha = 0
-//                        }, completion: { (finished) -> Void in
-//                            self.progressView.setProgress(0, animated: false)
-//                    })
-//                }
-//            }
-//            
-//            // if let webView = self.wkWebView {
-//            //    var progress: Float = (Float)(webView.estimatedProgress)
-//            //    }
-//            // }
-//            
-//            // println("Date changed: \(change[NSKeyValueChangeNewKey])")
-//        } else {
-//            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
-//        }
-//    }
+    override public func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject: AnyObject], context: UnsafeMutablePointer<Void>) {
+        if (context == &myContext) {
+            self.progressView.alpha = 1
+            
+            if let progress: Float = change[NSKeyValueChangeNewKey]?.floatValue {
+                var animated = progress > self.progressView.progress
+                
+                self.progressView.setProgress(progress, animated: animated)
+                
+                if (progress >= 1) {
+                    UIView.animateKeyframesWithDuration(0.3, delay: 0.3, options: UIViewKeyframeAnimationOptions.allZeros, animations: { () -> Void in
+                        self.progressView.alpha = 0
+                        }, completion: { (finished) -> Void in
+                            self.progressView.setProgress(0, animated: false)
+                    })
+                }
+            }
+            
+            // if let webView = self.wkWebView {
+            //    var progress: Float = (Float)(webView.estimatedProgress)
+            //    }
+            // }
+            
+            // println("Date changed: \(change[NSKeyValueChangeNewKey])")
+        } else {
+            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+        }
+    }
 }
